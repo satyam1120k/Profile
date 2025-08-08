@@ -1,0 +1,274 @@
+.resume-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.resume-header {
+  text-align: center;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.resume-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dark-text);
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.resume-subtitle {
+  font-size: 1.2rem;
+  color: var(--dark-text);
+  opacity: 0.8;
+  font-weight: 300;
+}
+
+.download-cv-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(255, 179, 217, 0.4);
+}
+
+.download-cv-btn:hover {
+  box-shadow: 0 6px 20px rgba(255, 179, 217, 0.6);
+}
+
+.resume-content {
+  text-align: left;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.education-section,
+.experience-section {
+  margin-bottom: 40px;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary-pink), var(--secondary-pink));
+  border-radius: 1px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -22px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  background: var(--secondary-pink);
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 3px var(--primary-pink);
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  border-color: var(--primary-pink);
+  box-shadow: 0 8px 25px rgba(255, 179, 217, 0.2);
+}
+
+.timeline-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin-bottom: 10px;
+}
+
+.timeline-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: var(--dark-text);
+  opacity: 0.8;
+}
+
+.timeline-meta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.institution,
+.company {
+  color: var(--secondary-pink);
+  font-weight: 500;
+}
+
+.period,
+.location {
+  opacity: 0.7;
+}
+
+.timeline-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--dark-text);
+  opacity: 0.9;
+  margin: 0;
+}
+
+.achievements-section {
+  margin-bottom: 20px;
+}
+
+.achievements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.achievement-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.achievement-item:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateX(5px);
+}
+
+.achievement-bullet {
+  color: var(--secondary-pink);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.achievement-item span:last-child {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--dark-text);
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .resume-title {
+    font-size: 2rem;
+  }
+  
+  .timeline {
+    padding-left: 20px;
+  }
+  
+  .timeline::before {
+    left: 10px;
+  }
+  
+  .timeline-marker {
+    left: -15px;
+    width: 10px;
+    height: 10px;
+  }
+  
+  .timeline-content {
+    padding: 15px;
+  }
+  
+  .timeline-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .achievement-item {
+    padding: 12px;
+  }
+}
+
+/* Animation enhancements */
+.timeline-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.timeline-content:hover::before {
+  left: 100%;
+}
+
+.timeline-marker {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 179, 217, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 179, 217, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 179, 217, 0);
+  }
+}
+
+
+
+
