@@ -1,6 +1,7 @@
 import React, { useRef, useMemo, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useSpring, animated } from '@react-spring/three'
+import { Text } from '@react-three/drei'
 import * as THREE from 'three'
 
 interface NotebookProps {
@@ -101,21 +102,20 @@ const Notebook: React.FC<NotebookProps> = ({ isOpen, currentPage, onPageChange, 
             <planeGeometry args={[2.5, 0.8]} />
             <meshBasicMaterial transparent opacity={0} />
           </mesh>
-          {/* Portfolio text - using HTML overlay instead */}
-          <group position={[0, 0, 0.01]}>
-            <mesh>
-              <planeGeometry args={[2.2, 0.6]} />
-              <meshBasicMaterial transparent opacity={0} />
-            </mesh>
-          </group>
-          
-          {/* Click to open text */}
-          <group position={[0, -0.8, 0.01]}>
-            <mesh>
-              <planeGeometry args={[1.5, 0.3]} />
-              <meshBasicMaterial transparent opacity={0} />
-            </mesh>
-          </group>
+          {/* Portfolio text on the cover */}
+          <Text
+            position={[0, 0, 0.01]}
+            fontSize={0.5}
+            color="#1a1a1a"
+            anchorX="center"
+            anchorY="middle"
+            maxWidth={2.5}
+            textAlign="center"
+            font="https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtXK-F2qC0s.woff"
+            fontWeight="bold"
+          >
+            Portfolio
+          </Text>
         </group>
         
         {/* Click indicator */}

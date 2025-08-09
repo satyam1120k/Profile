@@ -100,25 +100,7 @@ function App() {
         </Canvas>
       </div>
 
-      {/* Notebook Cover Text Overlay */}
-      {!isNotebookOpen && (
-        <div style={{
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          zIndex: 100,
-          pointerEvents: 'none',
-          textAlign: 'center',
-          color: '#2c3e50',
-          fontFamily: 'Poppins, sans-serif',
-          fontWeight: 'bold',
-          fontSize: '2rem',
-          textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
-        }}>
-          <div>Portfolio</div>
-        </div>
-      )}
+
 
       {/* Notebook Content Overlay */}
       <NotebookContent 

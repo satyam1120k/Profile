@@ -2,6 +2,7 @@ import React, { useRef, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF, Instances, Instance } from '@react-three/drei'
 import * as THREE from 'three'
+import Ground from './Ground'
 
 interface PetalProps {
   position: [number, number, number]
@@ -39,7 +40,6 @@ const Petal: React.FC<PetalProps> = ({ position, rotation, scale }) => {
 
 const CherryBlossomGarden: React.FC = () => {
   const petalsRef = useRef<THREE.Group>(null)
-  const grassRef = useRef<THREE.Mesh>(null)
 
   // Generate random petals
   const petals = useMemo(() => {
@@ -81,11 +81,8 @@ const CherryBlossomGarden: React.FC = () => {
 
   return (
     <group>
-      {/* Ground with grass */}
-      <mesh ref={grassRef} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}>
-        <planeGeometry args={[50, 50]} />
-        <meshStandardMaterial color="#a8e6cf" />
-      </mesh>
+      {/* Enhanced ground with grass and flowers */}
+      <Ground />
 
       {/* Cherry blossom trees */}
       {[...Array(8)].map((_, i) => (
