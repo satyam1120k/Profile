@@ -1,72 +1,82 @@
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Mail, Github, Linkedin, Send, User, MessageSquare, Phone } from 'lucide-react'
-import './Contact.css'
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Mail,
+  Github,
+  Linkedin,
+  Send,
+  User,
+  MessageSquare,
+  Phone,
+} from "lucide-react";
+import "./Contact.css";
 
 interface ContactProps {
-  onPageChange: (page: number) => void
+  onPageChange: (page: number) => void;
 }
 
 const Contact: React.FC<ContactProps> = ({ onPageChange }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const socialLinks = [
     {
       icon: Mail,
-      label: 'Email',
-      value: 'satyam@example.com',
-      url: 'mailto:satyam@example.com',
-      color: '#EA4335'
+      label: "Email",
+      value: "satyam1120k@gmail.com",
+      url: "mailto:satyam1120k@gmail.com",
+      color: "#EA4335",
     },
     {
       icon: Github,
-      label: 'GitHub',
-      value: 'github.com/satyam-patel',
-      url: 'https://github.com/satyam-patel',
-      color: '#333'
+      label: "GitHub",
+      value: "github.com/satyam-patel",
+      url: "https://github.com/samir1120k",
+      color: "#333",
     },
     {
       icon: Linkedin,
-      label: 'LinkedIn',
-      value: 'linkedin.com/in/satyam-patel',
-      url: 'https://linkedin.com/in/satyam-patel',
-      color: '#0077B5'
-    }
-  ]
+      label: "LinkedIn",
+      value: "linkedin.com/in/satyam-patel",
+      url: "https://linkedin.com/in/satyam-patel-8a4254279",
+      color: "#0077B5",
+    },
+  ];
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
-    }))
-  }
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
+    e.preventDefault();
+    setIsSubmitting(true);
+
     // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     // Reset form
     setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    })
-    
-    setIsSubmitting(false)
-    alert('Thank you for your message! I\'ll get back to you soon.')
-  }
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+
+    setIsSubmitting(false);
+    alert("Thank you for your message! I'll get back to you soon.");
+  };
 
   return (
     <div className="contact-container">
@@ -89,7 +99,7 @@ const Contact: React.FC<ContactProps> = ({ onPageChange }) => {
         >
           <h2 className="section-title">Get in Touch</h2>
           <p className="contact-description">
-            I'm always open to discussing new projects, creative ideas, or 
+            I'm always open to discussing new projects, creative ideas, or
             opportunities to be part of your visions. Feel free to reach out!
           </p>
 
@@ -107,7 +117,10 @@ const Contact: React.FC<ContactProps> = ({ onPageChange }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 + index * 0.1 }}
               >
-                <div className="social-icon" style={{ backgroundColor: link.color }}>
+                <div
+                  className="social-icon"
+                  style={{ backgroundColor: link.color }}
+                >
                   <link.icon size={20} />
                 </div>
                 <div className="social-info">
@@ -210,12 +223,7 @@ const Contact: React.FC<ContactProps> = ({ onPageChange }) => {
         </motion.div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Contact
-
-
-
-
-
+export default Contact;

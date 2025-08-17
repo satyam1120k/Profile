@@ -1,55 +1,55 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { Code, Brain, Database, Smartphone, Globe, Git } from 'lucide-react'
-import './Skills.css'
+import React from "react";
+import { motion } from "framer-motion";
+import { Code, Brain, Database, Smartphone, Globe, Git } from "lucide-react";
+import "./Skills.css";
 
 interface SkillsProps {
-  onPageChange: (page: number) => void
+  onPageChange: (page: number) => void;
 }
 
 const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
   const skillCategories = [
     {
-      title: 'Programming Languages',
+      title: "Programming Languages",
       icon: Code,
       skills: [
-        { name: 'Python', level: 90, color: '#3776AB' },
-        { name: 'C++', level: 85, color: '#00599C' },
-        { name: 'Dart', level: 80, color: '#00B4AB' },
-        { name: 'JavaScript', level: 85, color: '#F7DF1E' }
-      ]
+        { name: "Python", level: 90, color: "#3776AB" },
+        { name: "C++", level: 85, color: "#00599C" },
+        { name: "SQL", level: 80, color: "#00B4AB" },
+        { name: "JavaScript", level: 85, color: "#F7DF1E" },
+      ],
     },
     {
-      title: 'Frameworks & Libraries',
+      title: "Frameworks & Libraries",
       icon: Globe,
       skills: [
-        { name: 'React', level: 90, color: '#61DAFB' },
-        { name: 'Flutter', level: 85, color: '#02569B' },
-        { name: 'Node.js', level: 80, color: '#339933' },
-        { name: 'OpenCV', level: 75, color: '#5C3EE8' }
-      ]
+        { name: "React", level: 30, color: "#61DAFB" },
+        { name: "Flutter", level: 40, color: "#02569B" },
+        { name: "Node.js", level: 50, color: "#339933" },
+        { name: "OpenCV", level: 75, color: "#5C3EE8" },
+      ],
     },
     {
-      title: 'Tools & Technologies',
+      title: "Tools & Technologies",
       icon: Database,
       skills: [
-        { name: 'MediaPipe', level: 85, color: '#FF6B6B' },
-        { name: 'Firebase', level: 80, color: '#FFCA28' },
-        { name: 'Git', level: 90, color: '#F05032' },
-        { name: 'TensorFlow', level: 75, color: '#FF6F00' }
-      ]
+        { name: "MediaPipe", level: 85, color: "#FF6B6B" },
+        { name: "Firebase", level: 30, color: "#FFCA28" },
+        { name: "Git", level: 80, color: "#F05032" },
+        { name: "TensorFlow", level: 75, color: "#FF6F00" },
+      ],
     },
     {
-      title: 'Soft Skills',
+      title: "Soft Skills",
       icon: Brain,
       skills: [
-        { name: 'Teamwork', level: 95, color: '#4CAF50' },
-        { name: 'Problem Solving', level: 90, color: '#2196F3' },
-        { name: 'Research', level: 85, color: '#9C27B0' },
-        { name: 'Communication', level: 88, color: '#FF9800' }
-      ]
-    }
-  ]
+        { name: "Teamwork", level: 60, color: "#4CAF50" },
+        { name: "Problem Solving", level: 90, color: "#2196F3" },
+        { name: "Research", level: 85, color: "#9C27B0" },
+        { name: "Communication", level: 50, color: "#FF9800" },
+      ],
+    },
+  ];
 
   return (
     <div className="skills-container">
@@ -90,20 +90,25 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
                   whileHover={{ scale: 1.02, y: -2 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7 + categoryIndex * 0.1 + skillIndex * 0.05 }}
+                  transition={{
+                    delay: 0.7 + categoryIndex * 0.1 + skillIndex * 0.05,
+                  }}
                 >
                   <div className="skill-header">
                     <span className="skill-name">{skill.name}</span>
                     <span className="skill-level">{skill.level}%</span>
                   </div>
-                  
+
                   <div className="skill-bar">
                     <motion.div
                       className="skill-progress"
                       style={{ backgroundColor: skill.color }}
                       initial={{ width: 0 }}
                       animate={{ width: `${skill.level}%` }}
-                      transition={{ delay: 1 + categoryIndex * 0.1 + skillIndex * 0.05, duration: 1 }}
+                      transition={{
+                        delay: 1 + categoryIndex * 0.1 + skillIndex * 0.05,
+                        duration: 1,
+                      }}
                     />
                   </div>
                 </motion.div>
@@ -144,12 +149,7 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
         </div>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default Skills
-
-
-
-
-
+export default Skills;

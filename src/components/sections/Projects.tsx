@@ -1,76 +1,90 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { ExternalLink, Github, Play, Code, Smartphone, Brain, Eye } from 'lucide-react'
-import './Projects.css'
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  ExternalLink,
+  Github,
+  Play,
+  Code,
+  Smartphone,
+  Brain,
+  Eye,
+} from "lucide-react";
+import "./Projects.css";
 
 interface ProjectsProps {
-  onPageChange: (page: number) => void
+  onPageChange: (page: number) => void;
 }
 
 const Projects: React.FC<ProjectsProps> = ({ onPageChange }) => {
   const projects = [
     {
-      title: 'Weather Software',
-      description: 'A comprehensive weather application with real-time data and beautiful UI',
-      technologies: ['React', 'Node.js', 'OpenWeather API'],
-      image: '🌤️',
-      demo: 'https://weather-demo.com',
-      github: 'https://github.com/satyam-patel/weather-app',
-      category: 'Web App'
+      title: "Weather Software",
+      description:
+        "A comprehensive weather application with real-time data and beautiful UI",
+      technologies: ["React", "Node.js", "OpenWeather API"],
+      image: "🌤️",
+      demo: "https://weather-demo.com",
+      github: "https://github.com/satyam-patel/weather-app",
+      category: "Web App",
     },
     {
-      title: 'Catalog App (Flutter)',
-      description: 'Mobile application for product catalog management with offline support',
-      technologies: ['Flutter', 'Dart', 'Firebase'],
-      image: '📱',
-      demo: 'https://catalog-demo.com',
-      github: 'https://github.com/satyam-patel/catalog-app',
-      category: 'Mobile App'
+      title: "Catalog App (Flutter)",
+      description:
+        "Mobile application for product catalog management with offline support",
+      technologies: ["Flutter", "Dart", "Firebase"],
+      image: "📱",
+      demo: "https://catalog-demo.com",
+      github: "https://github.com/satyam-patel/catalog-app",
+      category: "Mobile App",
     },
     {
-      title: 'AI-Based BPPV Pose Guide',
-      description: 'Computer vision application for detecting and guiding BPPV poses',
-      technologies: ['Python', 'OpenCV', 'MediaPipe'],
-      image: '🧠',
-      demo: 'https://bppv-demo.com',
-      github: 'https://github.com/satyam-patel/bppv-guide',
-      category: 'AI/ML'
+      title: "AI-Based BPPV Pose Guide",
+      description:
+        "Computer vision application for detecting and guiding BPPV poses",
+      technologies: ["Python", "OpenCV", "MediaPipe"],
+      image: "🧠",
+      demo: "https://bppv-demo.com",
+      github: "https://github.com/satyam-patel/bppv-guide",
+      category: "AI/ML",
     },
     {
-      title: 'Drone Detection System',
-      description: 'Advanced drone detection using computer vision and machine learning',
-      technologies: ['Python', 'TensorFlow', 'OpenCV'],
-      image: '🚁',
-      demo: 'https://drone-demo.com',
-      github: 'https://github.com/satyam-patel/drone-detection',
-      category: 'AI/ML'
+      title: "Drone Detection System",
+      description:
+        "Advanced drone detection using computer vision and machine learning",
+      technologies: ["Python", "TensorFlow", "OpenCV"],
+      image: "🚁",
+      demo: "https://drone-demo.com",
+      github: "https://github.com/satyam-patel/drone-detection",
+      category: "AI/ML",
     },
     {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution with payment integration',
-      technologies: ['React', 'Node.js', 'MongoDB'],
-      image: '🛒',
-      demo: 'https://ecommerce-demo.com',
-      github: 'https://github.com/satyam-patel/ecommerce',
-      category: 'Web App'
+      title: "E-Commerce Platform",
+      description: "Full-stack e-commerce solution with payment integration",
+      technologies: ["React", "Node.js", "MongoDB"],
+      image: "🛒",
+      demo: "https://ecommerce-demo.com",
+      github: "https://github.com/satyam-patel/ecommerce",
+      category: "Web App",
     },
     {
-      title: 'Portfolio Website',
-      description: 'Interactive 3D portfolio with anime aesthetics and smooth animations',
-      technologies: ['React', 'Three.js', 'TypeScript'],
-      image: '🌸',
-      demo: '#',
-      github: 'https://github.com/satyam-patel/3d-portfolio',
-      category: 'Web App'
-    }
-  ]
+      title: "Portfolio Website",
+      description:
+        "Interactive 3D portfolio with anime aesthetics and smooth animations",
+      technologies: ["React", "Three.js", "TypeScript"],
+      image: "🌸",
+      demo: "#",
+      github: "https://github.com/satyam-patel/3d-portfolio",
+      category: "Web App",
+    },
+  ];
 
-  const categories = ['All', 'Web App', 'Mobile App', 'AI/ML']
-  const [selectedCategory, setSelectedCategory] = React.useState('All')
+  const categories = ["All", "Web App", "Mobile App", "AI/ML"];
+  const [selectedCategory, setSelectedCategory] = React.useState("All");
 
-  const filteredProjects = selectedCategory === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory)
+  const filteredProjects =
+    selectedCategory === "All"
+      ? projects
+      : projects.filter((project) => project.category === selectedCategory);
 
   return (
     <div className="projects-container">
@@ -93,7 +107,9 @@ const Projects: React.FC<ProjectsProps> = ({ onPageChange }) => {
         {categories.map((category, index) => (
           <motion.button
             key={category}
-            className={`filter-btn ${selectedCategory === category ? 'active' : ''}`}
+            className={`filter-btn ${
+              selectedCategory === category ? "active" : ""
+            }`}
             onClick={() => setSelectedCategory(category)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -116,10 +132,10 @@ const Projects: React.FC<ProjectsProps> = ({ onPageChange }) => {
           <motion.div
             key={index}
             className="project-card"
-            whileHover={{ 
-              scale: 1.02, 
+            whileHover={{
+              scale: 1.02,
               y: -5,
-              rotateY: 5
+              rotateY: 5,
             }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -159,7 +175,7 @@ const Projects: React.FC<ProjectsProps> = ({ onPageChange }) => {
               <div className="project-category">{project.category}</div>
               <h3 className="project-title">{project.title}</h3>
               <p className="project-description">{project.description}</p>
-              
+
               <div className="project-technologies">
                 {project.technologies.map((tech, techIndex) => (
                   <span key={techIndex} className="tech-tag">
@@ -179,16 +195,19 @@ const Projects: React.FC<ProjectsProps> = ({ onPageChange }) => {
         transition={{ delay: 1.2, duration: 0.6 }}
       >
         <p className="footer-text">
-          Want to see more? Check out my <a href="https://github.com/satyam-patel" target="_blank" rel="noopener noreferrer">GitHub</a> for additional projects!
+          Want to see more? Check out my{" "}
+          <a
+            href="https://github.com/samir1120k"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>{" "}
+          for additional projects!
         </p>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default Projects
-
-
-
-
-
+export default Projects;

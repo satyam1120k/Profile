@@ -23,7 +23,7 @@ const LoadingScreen: React.FC = () => {
         </div>
         
         <div className="loading-quote">
-          "Creativity begins where comfort ends."
+          "We all live inside our own fantasies."
         </div>
       </div>
     </div>

@@ -113,6 +113,7 @@
   font-style: italic;
   opacity: 0.8;
   margin: 0;
+  font-family: 'STIX Two Math', serif;
 }
 
 /* Responsive Design */
@@ -176,8 +177,3 @@
   opacity: 0.7;
   pointer-events: none;
 }
-
-
-
-
-

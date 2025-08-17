@@ -1,46 +1,55 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { Download, Calendar, MapPin, GraduationCap, Briefcase, Award } from 'lucide-react'
-import './Resume.css'
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  Download,
+  Calendar,
+  MapPin,
+  GraduationCap,
+  Briefcase,
+  Award,
+} from "lucide-react";
+import "./Resume.css";
 
 interface ResumeProps {
-  onPageChange: (page: number) => void
+  onPageChange: (page: number) => void;
 }
 
 const Resume: React.FC<ResumeProps> = ({ onPageChange }) => {
   const education = [
     {
-      degree: 'B.Tech Honors in Data Science',
-      institution: 'CSVTU',
-      period: '2021 - Present',
-      location: 'India',
-      description: 'Focus on data science, machine learning, and artificial intelligence'
-    }
-  ]
+      degree: "B.Tech Honors in Data Science",
+      institution: "CSVTU",
+      period: "2022 - Present",
+      location: "India",
+      description:
+        "Focus on data science, machine learning, and artificial intelligence",
+    },
+  ];
 
   const experience = [
     {
-      title: 'Full Stack Developer',
-      company: 'Freelance',
-      period: '2022 - Present',
-      location: 'Remote',
-      description: 'Building web applications and mobile apps using modern technologies'
+      title: "Frontend Developer",
+      company: "-----------",
+      period: "------------",
+      location: "------------",
+      description:
+        "Building web applications and mobile apps using modern technologies",
     },
     {
-      title: 'AI Research Assistant',
-      company: 'University Project',
-      period: '2023 - Present',
-      location: 'CSVTU',
-      description: 'Working on computer vision and machine learning projects'
-    }
-  ]
+      title: "Ex Research Intern",
+      company: "IIT BHU ,Varanasi",
+      period: "Jan 2025 - June 2025",
+      location: "Varanasi, India",
+      description: "Working on computer vision and machine learning projects",
+    },
+  ];
 
   const achievements = [
-    'Developed 20+ web applications and mobile apps',
-    'Specialized in AI and computer vision technologies',
-    'Contributed to open-source projects',
-    'Led team projects in university'
-  ]
+    "Developed 20+ web applications and mobile apps",
+    "Specialized in AI and computer vision technologies",
+    "Contributed to open-source projects",
+    "Led team projects in university",
+  ];
 
   const handleDownloadCV = () => {
     // Create a simple CV download
@@ -76,18 +85,18 @@ CONTACT
 Email: satyam@example.com
 GitHub: github.com/satyam-patel
 LinkedIn: linkedin.com/in/satyam-patel
-    `
-    
-    const blob = new Blob([cvContent], { type: 'text/plain' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = 'Satyam_Patel_CV.txt'
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    URL.revokeObjectURL(url)
-  }
+    `;
+
+    const blob = new Blob([cvContent], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Satyam_Patel_CV.txt";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <div className="resume-container">
@@ -99,7 +108,7 @@ LinkedIn: linkedin.com/in/satyam-patel
       >
         <h1 className="resume-title">Resume</h1>
         <p className="resume-subtitle">My Education & Experience</p>
-        
+
         <motion.button
           className="download-cv-btn"
           onClick={handleDownloadCV}
@@ -209,12 +218,7 @@ LinkedIn: linkedin.com/in/satyam-patel
         </div>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default Resume
-
-
-
-
-
+export default Resume;

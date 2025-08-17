@@ -51,6 +51,7 @@
   color: var(--dark-text);
   margin-bottom: 15px;
   opacity: 0.9;
+  text-align: justify;
 }
 
 .education-section {
@@ -274,6 +275,8 @@
 .interest-card:hover::before {
   left: 100%;
 }
+
+
 
 
 

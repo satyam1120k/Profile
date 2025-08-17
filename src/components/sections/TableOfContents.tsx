@@ -1,28 +1,64 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { BookOpen, User, FileText, Briefcase, Code, Mail } from 'lucide-react'
-import './TableOfContents.css'
+import React from "react";
+import { motion } from "framer-motion";
+import { BookOpen, User, FileText, Briefcase, Code, Mail } from "lucide-react";
+import "./TableOfContents.css";
 
 interface TableOfContentsProps {
-  onPageChange: (page: number) => void
+  onPageChange: (page: number) => void;
 }
 
 const TableOfContents: React.FC<TableOfContentsProps> = ({ onPageChange }) => {
   const sections = [
-    { id: 1, title: 'Home', icon: User, description: 'Welcome and introduction' },
-    { id: 2, title: 'About Me', icon: BookOpen, description: 'My story and background' },
-    { id: 3, title: 'Resume', icon: FileText, description: 'Education and experience' },
-    { id: 4, title: 'Projects', icon: Briefcase, description: 'My work and achievements' },
-    { id: 5, title: 'Skills', icon: Code, description: 'Technical expertise' },
-    { id: 6, title: 'Contact', icon: Mail, description: 'Get in touch' }
-  ]
+    {
+      id: 1,
+      title: "Home",
+      icon: User,
+      description: "Step into my world — where ideas turn into reality.",
+    },
+    {
+      id: 2,
+      title: "About Me",
+      icon: BookOpen,
+      description: "A curious mind crafting stories in code and AI.",
+    },
+    {
+      id: 3,
+      title: "Resume",
+      icon: FileText,
+      description: "A journey through learning, building, and growing.",
+    },
+    {
+      id: 4,
+      title: "Projects",
+      icon: Briefcase,
+      description: "From sparks of ideas to fully-fledged creations.",
+    },
+    {
+      id: 5,
+      title: "Skills",
+      icon: Code,
+      description: "The tools and tech that fuel my innovation.",
+    },
+    {
+      id: 6,
+      title: "Contact",
+      icon: Mail,
+      description: "Let's connect and make something extraordinary.",
+    },
+    {
+      id: 7,
+      title: "Contact",
+      icon: Mail,
+      description: "Let's connect and make something extraordinary.",
+    },
+  ];
 
   const handleSectionClick = (pageIndex: number) => {
     if ((window as any).playPageTurnSound) {
-      (window as any).playPageTurnSound()
+      (window as any).playPageTurnSound();
     }
-    onPageChange(pageIndex)
-  }
+    onPageChange(pageIndex);
+  };
 
   return (
     <div className="toc-container">
@@ -34,9 +70,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ onPageChange }) => {
       >
         <h1 className="toc-title">Portfolio</h1>
         <p className="toc-subtitle">Satyam Patel</p>
-        <p className="toc-description">
-          Full Stack Developer | AI Enthusiast
-        </p>
+        <p className="toc-description">Frontend Developer & AI Engineer</p>
       </motion.div>
 
       <div className="toc-sections">
@@ -58,9 +92,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ onPageChange }) => {
               <h3 className="section-title">{section.title}</h3>
               <p className="section-description">{section.description}</p>
             </div>
-            <div className="section-arrow">
-              →
-            </div>
+            <div className="section-arrow">→</div>
           </motion.div>
         ))}
       </div>
@@ -72,16 +104,11 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ onPageChange }) => {
         transition={{ delay: 0.8 }}
       >
         <p className="footer-quote">
-          "Turning ideas into immersive experiences."
+          "Transforming concepts into intelligent, interactive realities."
         </p>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default TableOfContents
-
-
-
-
-
+export default TableOfContents;
