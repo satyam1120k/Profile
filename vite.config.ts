@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/test/', // Update this to match your repository name
+  base: '/Profile/', // Correct repository name for GitHub Pages
   server: {
     port: 3000,
     open: true

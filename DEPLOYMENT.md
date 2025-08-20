@@ -21,10 +21,10 @@ npm install --save-dev gh-pages
 
 ### 3. Update Repository Name (if needed)
 
-If your repository name is different from `test`, update the `base` path in `vite.config.ts`:
+Your repository name is `Profile`, so the `base` path in `vite.config.ts` is already correct:
 
 ```typescript
-base: '/your-actual-repo-name/', // Replace with your repository name
+base: '/Profile/', // Correct repository name
 ```
 
 ### 4. Build and Deploy
@@ -53,14 +53,14 @@ This command will:
 
 - First deployment takes 2-5 minutes
 - Look for green checkmark in Actions tab
-- Your site will be live at: `https://yourusername.github.io/test/`
+- Your site will be live at: `https://samir1120k.github.io/Profile/`
 
 ## 🌐 Live URL
 
 Your portfolio will be available at:
 
 ```
-https://yourusername.github.io/test/
+https://samir1120k.github.io/Profile/
 ```
 
 ## 🔄 Update Deployments

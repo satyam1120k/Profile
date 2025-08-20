@@ -4,7 +4,7 @@ A stunning, interactive 3D animated portfolio website with anime aesthetics, fea
 
 ## 🌐 Live Demo
 
-**[View Live Portfolio](https://satyam-patel.github.io/3d-portfolio/)** ✨
+**[View Live Portfolio](https://samir1120k.github.io/Profile/)** ✨
 
 Experience the interactive 3D portfolio with cherry blossoms, animated notebook, and smooth transitions.
 
@@ -47,8 +47,8 @@ Experience the interactive 3D portfolio with cherry blossoms, animated notebook,
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/satyam-patel/3d-portfolio.git
-   cd 3d-portfolio
+   git clone https://github.com/samir1120k/Profile.git
+   cd Profile
    ```
 
 2. **Install dependencies**
@@ -199,7 +199,7 @@ This portfolio is optimized for GitHub Pages deployment:
 
    ```typescript
    export default defineConfig({
-     base: "/your-repo-name/",
+     base: "/Profile/",
      // ... other config
    });
    ```
@@ -273,8 +273,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 - **Email**: satyam@example.com
-- **GitHub**: [github.com/satyam-patel](https://github.com/satyam-patel)
-- **LinkedIn**: [linkedin.com/in/satyam-patel](https://linkedin.com/in/satyam-patel)
+- **GitHub**: [github.com/samir1120k](https://github.com/samir1120k)
+- **LinkedIn**: [linkedin.com/in/samir1120k](https://linkedin.com/in/samir1120k)
 
 ---
 
