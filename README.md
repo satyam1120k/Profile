@@ -2,6 +2,12 @@
 
 A stunning, interactive 3D animated portfolio website with anime aesthetics, featuring a cherry blossom garden scene and an animated notebook interface.
 
+## 🌐 Live Demo
+
+**[View Live Portfolio](https://satyam-patel.github.io/3d-portfolio/)** ✨
+
+Experience the interactive 3D portfolio with cherry blossoms, animated notebook, and smooth transitions.
+
 ## ✨ Features
 
 ### 🎨 Visual Design
@@ -169,18 +175,47 @@ Update the content in each section component to personalize your portfolio:
 
 ## 🚀 Deployment
 
-### Build for Production
+### GitHub Pages (Recommended)
 
-```bash
-npm run build
-```
+This portfolio is optimized for GitHub Pages deployment:
 
-### Deploy to Vercel
+1. **Build the project**
+
+   ```bash
+   npm run build
+   ```
+
+2. **Enable GitHub Pages**
+
+   - Go to your repository Settings
+   - Navigate to Pages section
+   - Select "Deploy from a branch"
+   - Choose `gh-pages` branch or `main` branch with `/docs` folder
+   - Set source to `/docs` or `/dist`
+
+3. **Configure base path** (if needed)
+
+   - Update `vite.config.ts` with your repository name:
+
+   ```typescript
+   export default defineConfig({
+     base: "/your-repo-name/",
+     // ... other config
+   });
+   ```
+
+4. **Deploy automatically**
+   - Set up GitHub Actions for automatic deployment
+   - Or manually push the built files to the deployment branch
+
+### Alternative Deployment Options
+
+#### Deploy to Vercel
 
 1. Install Vercel CLI: `npm i -g vercel`
 2. Run: `vercel`
 
-### Deploy to Netlify
+#### Deploy to Netlify
 
 1. Build the project: `npm run build`
 2. Upload the `dist` folder to Netlify
@@ -243,11 +278,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
+**Ready to deploy?** Check out the [GitHub Pages deployment guide](#github-pages-recommended) above! 🚀
+
 Made with ❤️ and lots of cherry blossoms 🌸
-
-
-
-
-
-
-
