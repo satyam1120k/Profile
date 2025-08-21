@@ -16,7 +16,7 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
         { name: "Python", level: 90, color: "#3776AB" },
         { name: "C++", level: 85, color: "#00599C" },
         { name: "SQL", level: 80, color: "#00B4AB" },
-        { name: "JavaScript", level: 85, color: "#F7DF1E" },
+        { name: "JavaScript", level: 50, color: "#F7DF1E" },
       ],
     },
     {
