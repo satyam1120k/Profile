@@ -23,18 +23,35 @@ const Resume: React.FC<ResumeProps> = ({ onPageChange }) => {
       location: "India",
       description:
         "Focus on data science, machine learning, and artificial intelligence",
+      cgpa: "8.3/10",
+    },
+    {
+      degree: "Higher Secondary",
+      institution: "K.V.N Public School",
+      period: "2019 - 2021",
+      location: "India",
+      description: "Focus on science and mathematics",
+      percentage: "71.8%",
+    },
+    {
+      degree: "Secondary",
+      institution: "J.D.S Public School",
+      period: "2017 - 2019",
+      location: "India",
+      description: "Focus on science and mathematics and social studies",
+      percentage: "70.0%",
     },
   ];
 
   const experience = [
-    {
-      title: "Frontend Developer",
-      company: "-----------",
-      period: "------------",
-      location: "------------",
-      description:
-        "Building web applications and mobile apps using modern technologies",
-    },
+    // {
+    //   title: "Frontend Developer",
+    //   company: "-----------",
+    //   period: "------------",
+    //   location: "------------",
+    //   description:
+    //     "Building web applications and mobile apps using modern technologies",
+    // },
     {
       title: "Ex Research Intern",
       company: "IIT BHU ,Varanasi",
@@ -52,50 +69,14 @@ const Resume: React.FC<ResumeProps> = ({ onPageChange }) => {
   ];
 
   const handleDownloadCV = () => {
-    // Create a simple CV download
-    const cvContent = `
-Satyam Patel
-Full Stack Developer | AI Enthusiast
-
-EDUCATION
-B.Tech Honors in Data Science - CSVTU (2021-Present)
-
-EXPERIENCE
-Full Stack Developer - Freelance (2022-Present)
-- Built 20+ web applications and mobile apps
-- Specialized in React, Flutter, and AI technologies
-
-AI Research Assistant - CSVTU (2023-Present)
-- Working on computer vision and machine learning projects
-- Developing innovative AI solutions
-
-SKILLS
-Languages: Python, C++, Dart, JavaScript
-Frameworks: React, Flutter, Node.js
-Tools: OpenCV, MediaPipe, Firebase, Git
-Soft Skills: Teamwork, Problem Solving, Research
-
-PROJECTS
-- Weather Software
-- Catalog App (Flutter)
-- AI-Based BPPV Pose Guide
-- Drone Detection System
-
-CONTACT
-Email: satyam@example.com
-GitHub: github.com/satyam-patel
-LinkedIn: linkedin.com/in/satyam-patel
-    `;
-
-    const blob = new Blob([cvContent], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "Satyam_Patel_CV.txt";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    // Download the PDF resume
+    const pdfPath = "/document/Agentic_ai.pdf";
+    const link = document.createElement("a");
+    link.href = pdfPath;
+    link.download = "Satyam_Patel_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -107,7 +88,7 @@ LinkedIn: linkedin.com/in/satyam-patel
         transition={{ duration: 0.6 }}
       >
         <h1 className="resume-title">Resume</h1>
-        <p className="resume-subtitle">My Education & Experience</p>
+        <p className="resume-subtitle"> Experience & My Education </p>
 
         <motion.button
           className="download-cv-btn"
@@ -126,41 +107,6 @@ LinkedIn: linkedin.com/in/satyam-patel
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.6 }}
       >
-        <div className="education-section">
-          <h2 className="section-title">
-            <GraduationCap size={24} />
-            Education
-          </h2>
-          <div className="timeline">
-            {education.map((item, index) => (
-              <motion.div
-                key={index}
-                className="timeline-item"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 + index * 0.1 }}
-              >
-                <div className="timeline-marker"></div>
-                <div className="timeline-content">
-                  <h3 className="timeline-title">{item.degree}</h3>
-                  <div className="timeline-meta">
-                    <span className="institution">{item.institution}</span>
-                    <span className="period">
-                      <Calendar size={14} />
-                      {item.period}
-                    </span>
-                    <span className="location">
-                      <MapPin size={14} />
-                      {item.location}
-                    </span>
-                  </div>
-                  <p className="timeline-description">{item.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
         <div className="experience-section">
           <h2 className="section-title">
             <Briefcase size={24} />
@@ -173,7 +119,7 @@ LinkedIn: linkedin.com/in/satyam-patel
                 className="timeline-item"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.7 + index * 0.1 }}
+                transition={{ delay: 0.5 + index * 0.1 }}
               >
                 <div className="timeline-marker"></div>
                 <div className="timeline-content">
@@ -196,7 +142,56 @@ LinkedIn: linkedin.com/in/satyam-patel
           </div>
         </div>
 
-        <div className="achievements-section">
+        <div className="education-section">
+          <h2 className="section-title">
+            <GraduationCap size={24} />
+            Education
+          </h2>
+          <div className="timeline">
+            {education.map((item, index) => (
+              <motion.div
+                key={index}
+                className="timeline-item"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.7 + index * 0.1 }}
+              >
+                <div className="timeline-marker"></div>
+                <div className="timeline-content">
+                  <div className="timeline-header">
+                    <div className="timeline-info">
+                      <h3 className="timeline-title">{item.degree}</h3>
+                      <div className="timeline-meta">
+                        <span className="institution">{item.institution}</span>
+                        <span className="period">
+                          <Calendar size={14} />
+                          {item.period}
+                        </span>
+                        <span className="location">
+                          <MapPin size={14} />
+                          {item.location}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="timeline-grades">
+                      <div className="grade-item">
+                        <span className="grade-label">
+                          {item.cgpa ? "CGPA" : "Percentage"}
+                        </span>
+                        <span className="grade-value">
+                          {item.cgpa || item.percentage}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="timeline-description">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* <div className="achievements-section">
           <h2 className="section-title">
             <Award size={24} />
             Key Achievements
@@ -215,7 +210,7 @@ LinkedIn: linkedin.com/in/satyam-patel
               </motion.div>
             ))}
           </div>
-        </div>
+        </div> */}
       </motion.div>
     </div>
   );

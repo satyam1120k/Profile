@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { GraduationCap, Heart, Code, Brain, Users, Target } from "lucide-react";
+import { GraduationCap, Heart, Code, Brain, Users, Target ,Bot} from "lucide-react";
 import "./About.css";
 
 interface AboutProps {
@@ -30,7 +30,17 @@ const About: React.FC<AboutProps> = ({ onPageChange }) => {
     {
       icon: Target,
       title: "Problem Solving",
-      description: "Solve 300+ problems on LeetCode",
+      description: "Solve 350+ problems on LeetCode",
+    },
+    {
+      icon: Bot,
+      title: "Agentic AI",
+      description: "Build AI Agent that solve real life problems",
+    },
+    {
+      icon: Bot,
+      title: "Backend Development",
+      description: "Optimizing databases for speed and scalability.",
     },
   ];
 
@@ -123,7 +133,7 @@ const About: React.FC<AboutProps> = ({ onPageChange }) => {
           <p className="quote-author">- My Philosophy</p>
         </div>
 
-        <div className="values-section">
+        {/* <div className="values-section">
           <h2 className="section-title">My Values</h2>
           <div className="values-list">
             <div className="value-item">
@@ -152,7 +162,7 @@ const About: React.FC<AboutProps> = ({ onPageChange }) => {
               </span>
             </div>
           </div>
-        </div>
+        </div> */}
       </motion.div>
     </div>
   );

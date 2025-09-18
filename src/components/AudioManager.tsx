@@ -50,14 +50,14 @@ const AudioManager: React.FC = () => {
   }, [])
 
   return (
-    <audio
-      ref={audioRef}
-      preload="auto"
-      style={{ display: 'none' }}
-    >
-      <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m99OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+9+OWT" type="audio/wav" />
-    </audio>
-  )
+  <audio ref={audioRef} preload="auto" style={{ display: 'none' }}>
+    <source
+      src="music/profile.mp3"
+      type="audio/mpeg"
+    />
+  </audio>
+)
+
 }
 
 export default AudioManager

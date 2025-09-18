@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import {
   Mail,
   Github,
@@ -8,6 +9,8 @@ import {
   User,
   MessageSquare,
   Phone,
+  CheckCircle,
+  XCircle,
 } from "lucide-react";
 import "./Contact.css";
 
@@ -24,6 +27,15 @@ const Contact: React.FC<ContactProps> = ({ onPageChange }) => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+
+  // EmailJS configuration
+  const EMAILJS_SERVICE_ID = "service_juamdms";
+  const EMAILJS_TEMPLATE_ID = "template_p9l4eao";
+  const EMAILJS_PUBLIC_KEY = "yeF0ZSPanlC4UmIVv";
 
   const socialLinks = [
     {
@@ -62,20 +74,58 @@ const Contact: React.FC<ContactProps> = ({ onPageChange }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus("idle");
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      // Initialize EmailJS
+      emailjs.init(EMAILJS_PUBLIC_KEY);
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: "satyam1120k@gmail.com", // Your email address
+      };
 
-    setIsSubmitting(false);
-    alert("Thank you for your message! I'll get back to you soon.");
+      // Send email
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams
+      );
+
+      console.log("Email sent successfully:", response);
+
+      // Success
+      setSubmitStatus("success");
+      setStatusMessage(
+        "Thank you for your message! I'll get back to you soon."
+      );
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setSubmitStatus("error");
+      setStatusMessage(
+        "Sorry, there was an error sending your message. Please try again or contact me directly."
+      );
+    } finally {
+      setIsSubmitting(false);
+
+      // Clear status message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus("idle");
+        setStatusMessage("");
+      }, 5000);
+    }
   };
 
   return (
@@ -146,6 +196,26 @@ const Contact: React.FC<ContactProps> = ({ onPageChange }) => {
           transition={{ delay: 0.6, duration: 0.6 }}
         >
           <h2 className="section-title">Send a Message</h2>
+
+          {/* Status Message */}
+          {submitStatus !== "idle" && (
+            <motion.div
+              className={`status-message ${submitStatus}`}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+            >
+              <div className="status-icon">
+                {submitStatus === "success" ? (
+                  <CheckCircle size={20} />
+                ) : (
+                  <XCircle size={20} />
+                )}
+              </div>
+              <span>{statusMessage}</span>
+            </motion.div>
+          )}
+
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <div className="input-icon">
@@ -158,6 +228,7 @@ const Contact: React.FC<ContactProps> = ({ onPageChange }) => {
                 value={formData.name}
                 onChange={handleInputChange}
                 required
+                disabled={isSubmitting}
               />
             </div>
 
@@ -172,6 +243,7 @@ const Contact: React.FC<ContactProps> = ({ onPageChange }) => {
                 value={formData.email}
                 onChange={handleInputChange}
                 required
+                disabled={isSubmitting}
               />
             </div>
 
@@ -186,6 +258,7 @@ const Contact: React.FC<ContactProps> = ({ onPageChange }) => {
                 value={formData.subject}
                 onChange={handleInputChange}
                 required
+                disabled={isSubmitting}
               />
             </div>
 
@@ -200,6 +273,7 @@ const Contact: React.FC<ContactProps> = ({ onPageChange }) => {
                 onChange={handleInputChange}
                 rows={5}
                 required
+                disabled={isSubmitting}
               />
             </div>
 
@@ -207,8 +281,8 @@ const Contact: React.FC<ContactProps> = ({ onPageChange }) => {
               type="submit"
               className="submit-btn"
               disabled={isSubmitting}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
+              whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
             >
               {isSubmitting ? (
                 <div className="loading-spinner" />
