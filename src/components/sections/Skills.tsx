@@ -77,7 +77,7 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
   const codingProfiles = [
     {
       platform: "LeetCode",
-      username: "satyam-patel",
+      // username: "samir1120k",
       stats: [
         { label: "Problems Solved", value: "350+", icon: Target },
         { label: "Rank", value: "#427,312", icon: Trophy },
@@ -90,7 +90,7 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
     },
     {
       platform: "Codeforces",
-      username: "satyam-patel",
+      // username: "samir1120k",
       stats: [
         { label: "Rating", value: "1052", icon: Star },
         { label: "Problems", value: "65+", icon: Code2 },
@@ -103,7 +103,7 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
     },
     {
       platform: "AtCoder",
-      username: "satyam-patel",
+      // username: "samir1120k",
       stats: [
         { label: "Rating", value: "100", icon: Star },
         { label: "Rank", value: "#45,938", icon: Trophy },
@@ -116,7 +116,7 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
     },
     {
       platform: "GeeksforGeeks",
-      username: "satyam-patel",
+      // username: "samir1uzfu",
       stats: [
         { label: "Rank", value: "#36", icon: Trophy },
         { label: "Problems", value: "70+", icon: Code2 },
@@ -256,7 +256,7 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
                 </div>
 
                 <div className="profile-footer">
-                  <span className="profile-username">@{profile.username}</span>
+                  {/* <span className="profile-username">@{profile.username}</span> */}
                 </div>
               </motion.a>
             ))}
