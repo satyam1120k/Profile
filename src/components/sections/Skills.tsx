@@ -31,6 +31,7 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
         { name: "C++", level: 80, color: "#00599C" },
         { name: "SQL", level: 80, color: "#00B4AB" },
         { name: "JavaScript", level: 40, color: "#F7DF1E" },
+        { name: "TypeScript", level: 40, color: "#9d35bdff" },
       ],
     },
     {
@@ -79,8 +80,8 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
       platform: "LeetCode",
       // username: "samir1120k",
       stats: [
-        { label: "Problems Solved", value: "350+", icon: Target },
-        { label: "Rank", value: "#427,312", icon: Trophy },
+        { label: "Rating", value: "1467", icon: Star },
+        { label: "Problems Solved", value: "400+", icon: Code2 },
       ],
       color: "#FFA116",
       url: "https://leetcode.com/u/samir1120k",
@@ -93,7 +94,7 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
       // username: "samir1120k",
       stats: [
         { label: "Rating", value: "1052", icon: Star },
-        { label: "Problems", value: "65+", icon: Code2 },
+        { label: "Problems Solved", value: "75+", icon: Code2 },
       ],
       color: "#1F8ACB",
       url: "https://codeforces.com/profile/samir1120k",
@@ -105,7 +106,7 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
       platform: "AtCoder",
       // username: "samir1120k",
       stats: [
-        { label: "Rating", value: "100", icon: Star },
+        { label: "Rating", value: "223", icon: Star },
         { label: "Rank", value: "#45,938", icon: Trophy },
       ],
       color: "#00C851",
@@ -119,7 +120,8 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
       // username: "samir1uzfu",
       stats: [
         { label: "Rank", value: "#36", icon: Trophy },
-        { label: "Problems", value: "70+", icon: Code2 },
+         { label: "Problems", value: "70+", icon: Code2 },
+        
       ],
       color: "#2F8D46",
       url: "https://www.geeksforgeeks.org/user/samir1uzfv",

@@ -45,12 +45,6 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ onPageChange }) => {
       icon: Mail,
       description: "Let's connect and make something extraordinary.",
     },
-    {
-      id: 7,
-      title: "Contact",
-      icon: Mail,
-      description: "Let's connect and make something extraordinary.",
-    },
   ];
 
   const handleSectionClick = (pageIndex: number) => {
@@ -70,7 +64,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ onPageChange }) => {
       >
         <h1 className="toc-title">Portfolio</h1>
         <p className="toc-subtitle">Satyam Patel</p>
-        <p className="toc-description">Frontend Developer & AI Engineer</p>
+        <p className="toc-description">Full Stack Developer & AI Engineer</p>
       </motion.div>
 
       <div className="toc-sections">
