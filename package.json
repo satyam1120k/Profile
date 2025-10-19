@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A stunning 3D animated portfolio website with anime aesthetics",
   "main": "index.js",
-  "homepage": "https://samir1120k.github.io/Profile/",
+  "homepage": "https://satyam1120k.github.io/Profile/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

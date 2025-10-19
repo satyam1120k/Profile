@@ -4,7 +4,7 @@ A stunning, interactive 3D animated portfolio website with anime aesthetics, fea
 
 ## 🌐 Live Demo
 
-**[View Live Portfolio](https://samir1120k.github.io/Profile/)** ✨
+**[View Live Portfolio](https://satyam1120k.github.io/Profile/)** ✨
 
 Experience the interactive 3D portfolio with cherry blossoms, animated notebook, and smooth transitions.
 
