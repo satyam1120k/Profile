@@ -49,14 +49,14 @@ const Contact: React.FC<ContactProps> = ({ onPageChange }) => {
       icon: Github,
       label: "GitHub",
       value: "github.com/satyam-patel",
-      url: "https://github.com/samir1120k",
+      url: "https://github.com/satyam1120k",
       color: "#333",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       value: "linkedin.com/in/satyam-patel",
-      url: "https://linkedin.com/in/satyam-patel-8a4254279",
+      url: "https://linkedin.com/in/satyam1120k",
       color: "#0077B5",
     },
   ];

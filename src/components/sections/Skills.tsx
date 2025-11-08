@@ -84,7 +84,7 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
         { label: "Problems Solved", value: "400+", icon: Code2 },
       ],
       color: "#FFA116",
-      url: "https://leetcode.com/u/samir1120k",
+      url: "https://leetcode.com/u/satyam1120k",
       icon: "🏆",
       description: "Algorithm & Data Structures",
       logo: "/logo/leetcode_logo.png",
@@ -97,37 +97,10 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
         { label: "Problems Solved", value: "75+", icon: Code2 },
       ],
       color: "#1F8ACB",
-      url: "https://codeforces.com/profile/samir1120k",
+      url: "https://codeforces.com/profile/satyam1120k",
       icon: "⚡",
       description: "Competitive Programming",
       logo: "/logo/codeforces_logo.png",
-    },
-    {
-      platform: "AtCoder",
-      // username: "samir1120k",
-      stats: [
-        { label: "Rating", value: "223", icon: Star },
-        { label: "Rank", value: "#45,938", icon: Trophy },
-      ],
-      color: "#00C851",
-      url: "https://atcoder.jp/users/samir1120k",
-      icon: "🎯",
-      description: "Japanese CP Platform",
-      logo: "/logo/atcoder_logo.png",
-    },
-    {
-      platform: "GeeksforGeeks",
-      // username: "samir1uzfu",
-      stats: [
-        { label: "Rank", value: "#36", icon: Trophy },
-         { label: "Problems", value: "70+", icon: Code2 },
-        
-      ],
-      color: "#2F8D46",
-      url: "https://www.geeksforgeeks.org/user/samir1uzfv",
-      icon: "💻",
-      description: "Interview Preparation",
-      logo: "/logo/gfg_logo.jpeg",
     },
   ];
 

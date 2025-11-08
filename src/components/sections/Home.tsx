@@ -10,11 +10,11 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ onPageChange }) => {
   const socialLinks = [
     { icon: Mail, label: "Email", url: "mailto:satyam1120k@example.com" },
-    { icon: Github, label: "GitHub", url: "https://github.com/samir1120k" },
+    { icon: Github, label: "GitHub", url: "https://github.com/satyam1120k" },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      url: "https://www.linkedin.com/in/satyam-patel-8a4254279/",
+      url: "https://www.linkedin.com/in/satyam1120k",
     },
   ];
 

@@ -70,7 +70,7 @@ const Resume: React.FC<ResumeProps> = ({ onPageChange }) => {
 
   const handleDownloadCV = () => {
     // Download the PDF resume
-    const pdfPath = "/document/Agentic_ai.pdf";
+    const pdfPath = "document\python resume.pdf";
     const link = document.createElement("a");
     link.href = pdfPath;
     link.download = "Satyam_Patel_Resume.pdf";
