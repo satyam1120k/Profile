@@ -7,6 +7,7 @@ import Notebook from './components/Notebook'
 import NotebookContent from './components/NotebookContent'
 import AudioManager from './components/AudioManager'
 import LoadingScreen from './components/LoadingScreen'
+import UsageHint from './components/UsageHint'
 import './App.css'
 
 function App() {
@@ -45,7 +46,7 @@ function App() {
   return (
     <div className="app">
       <AudioManager />
-      
+
       {/* 3D Scene */}
       <div className="canvas-container">
         <Canvas
@@ -53,7 +54,7 @@ function App() {
           style={{ background: 'linear-gradient(to bottom, #87CEEB, #E0F6FF)' }}
         >
           <EffectComposer>
-            <Bloom 
+            <Bloom
               intensity={0.5}
               luminanceThreshold={0.1}
               luminanceSmoothing={0.9}
@@ -61,35 +62,35 @@ function App() {
           </EffectComposer>
 
           <ambientLight intensity={0.4} />
-          <directionalLight 
-            position={[10, 10, 5]} 
-            intensity={1} 
-            castShadow 
+          <directionalLight
+            position={[10, 10, 5]}
+            intensity={1}
+            castShadow
             shadow-mapSize-width={2048}
             shadow-mapSize-height={2048}
           />
 
           <CherryBlossomGarden />
-          
-          <Notebook 
+
+          <Notebook
             isOpen={isNotebookOpen}
             currentPage={currentPage}
             onPageChange={handlePageChange}
             onNotebookClick={handleNotebookClick}
           />
 
-          <Stars 
-            radius={100} 
-            depth={50} 
-            count={5000} 
-            factor={4} 
-            saturation={0} 
-            fade 
+          <Stars
+            radius={100}
+            depth={50}
+            count={5000}
+            factor={4}
+            saturation={0}
+            fade
             speed={1}
           />
 
           <Environment preset="sunset" />
-          <OrbitControls 
+          <OrbitControls
             enableZoom={true}
             enablePan={true}
             enableRotate={true}
@@ -102,8 +103,12 @@ function App() {
 
 
 
+
+      {/* Usage Hint */}
+      <UsageHint visible={!isNotebookOpen} />
+
       {/* Notebook Content Overlay */}
-      <NotebookContent 
+      <NotebookContent
         currentPage={currentPage}
         onPageChange={handlePageChange}
         isNotebookOpen={isNotebookOpen}

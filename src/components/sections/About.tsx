@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { GraduationCap, Heart, Code, Brain, Users, Target ,Bot} from "lucide-react";
 import "./About.css";
 
 interface AboutProps {
@@ -8,42 +7,6 @@ interface AboutProps {
 }
 
 const About: React.FC<AboutProps> = ({ onPageChange }) => {
-  const interests = [
-    {
-      icon: Code,
-      title: "Web Development",
-      description:
-        "Building modern web applications with cutting-edge technologies",
-    },
-    {
-      icon: Brain,
-      title: "AI & Machine Learning",
-      description:
-        "Building the frontiers of artificial intelligence and computer vision",
-    },
-    {
-      icon: Users,
-      title: "Open Source",
-      description:
-        "Contributing to the developer community and sharing knowledge",
-    },
-    {
-      icon: Target,
-      title: "Problem Solving",
-      description: "Solve 350+ problems on LeetCode",
-    },
-    {
-      icon: Bot,
-      title: "Agentic AI",
-      description: "Build AI Agent that solve real life problems",
-    },
-    {
-      icon: Bot,
-      title: "Backend Development",
-      description: "Optimizing databases for speed and scalability.",
-    },
-  ];
-
   return (
     <div className="about-container">
       <motion.div
@@ -53,116 +16,64 @@ const About: React.FC<AboutProps> = ({ onPageChange }) => {
         transition={{ duration: 0.6 }}
       >
         <h1 className="about-title">About Me</h1>
-        <p className="about-subtitle">My Journey in Technology</p>
       </motion.div>
 
       <motion.div
         className="about-content"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.6 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
       >
-        <div className="story-section">
-          <h2 className="section-title">My Story</h2>
-          <p className="story-text">
-            Hi, I’m Satyam Patel — Frontend Developer & AI Innovator, blending
-            technology, creativity, and purpose. What began as a curiosity about
-            “How does the internet work?” grew into a passion for building sleek
-            web apps, intelligent AI systems, and computer vision solutions that
-            inspire, connect, and make life a little more magical.
-          </p>
-          <p className="story-text">
-            I believe that technology should not just solve problems, but also
-            inspire and connect people. This philosophy drives me to build
-            applications that are not only functional but also delightful to
-            use. My approach combines technical expertise with creative
-            problem-solving, always keeping the end-user in mind.
-          </p>
+        {/* Desktop Content */}
+        <div className="professional-summary desktop-only">
+          <motion.p
+            className="summary-paragraph"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            I am a Data Science and AI Engineer focused on building real-time, high-impact intelligent systems that solve meaningful problems. I enjoy working in fast-paced environments where experimentation, innovation, and rapid execution matter.
+          </motion.p>
+
+          <motion.p
+            className="summary-paragraph"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
+            My expertise spans computer vision, deep learning, machine learning, optimization algorithms, and applied AI engineering. I have built systems for real-time pose estimation, medical AI guidance, UAV optimization using Genetic Algorithms, and federated learning applications. These projects reflect my ability to move quickly from research and prototyping to functional, deployable solutions.
+          </motion.p>
+
+          <motion.p
+            className="summary-paragraph"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            During my research internship at IIT (BHU), I developed an AI-driven BPPV therapy guidance system and an optimization framework that achieved significant performance improvements over traditional methods. I bring strong analytical skills, problem-solving ability, and a hands-on engineering mindset to every project.
+          </motion.p>
+
+          <motion.p
+            className="summary-paragraph highlight"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+          >
+            I thrive in roles where I can take ownership, iterate fast, solve complex challenges, and contribute directly to product innovation. My goal is to work with teams that value speed, clarity, and building intelligent systems that create real-world impact.
+          </motion.p>
         </div>
 
-        <div className="education-section">
-          <h2 className="section-title">
-            <GraduationCap size={24} />
-            Education
-          </h2>
-          <div className="education-card">
-            <div className="education-header">
-              <h3>B.Tech Honors in Data Science</h3>
-              <span className="institution">UTD-CSVTU, Bhilai</span>
-              <br />
-              <span className="institution">2022-Present</span>
-            </div>
-            <p className="education-description">
-              Currently pursuing my degree with a focus on data science, machine
-              learning, and artificial intelligence. This program has provided
-              me with a strong foundation in both theoretical concepts and
-              practical applications.
-            </p>
-          </div>
+        {/* Mobile Content */}
+        <div className="professional-summary mobile-only">
+          <motion.p
+            className="summary-paragraph"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            I am a Data Science & AI Engineer who loves building real-time, reliable AI systems. My work spans computer vision, deep learning, optimization, and applied machine intelligence. I move fast, think analytically, and enjoy taking ownership in high-growth startup environments. I've built impactful AI systems in medical guidance, UAV optimization, and federated learning, supported by research experience at IIT (BHU).
+          </motion.p>
         </div>
-
-        <div className="interests-section">
-          <h2 className="section-title">
-            <Heart size={24} />
-            What I Love
-          </h2>
-          <div className="interests-grid">
-            {interests.map((interest, index) => (
-              <motion.div
-                key={index}
-                className="interest-card"
-                whileHover={{ scale: 1.02, y: -5 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + index * 0.1 }}
-              >
-                <div className="interest-icon">
-                  <interest.icon size={24} />
-                </div>
-                <h3 className="interest-title">{interest.title}</h3>
-                <p className="interest-description">{interest.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        <div className="quote-section">
-          <blockquote className="inspirational-quote">
-            "Ready to bear the risk of haters"
-          </blockquote>
-          <p className="quote-author">- My Philosophy</p>
-        </div>
-
-        {/* <div className="values-section">
-          <h2 className="section-title">My Values</h2>
-          <div className="values-list">
-            <div className="value-item">
-              <span className="value-bullet">✦</span>
-              <span>
-                Continuous Learning - Always exploring new technologies and
-                methodologies
-              </span>
-            </div>
-            <div className="value-item">
-              <span className="value-bullet">✦</span>
-              <span>
-                User-Centric Design - Building solutions that truly serve people
-              </span>
-            </div>
-            <div className="value-item">
-              <span className="value-bullet">✦</span>
-              <span>
-                Innovation - Pushing boundaries and thinking outside the box
-              </span>
-            </div>
-            <div className="value-item">
-              <span className="value-bullet">✦</span>
-              <span>
-                Collaboration - Working together to achieve greater results
-              </span>
-            </div>
-          </div>
-        </div> */}
       </motion.div>
     </div>
   );

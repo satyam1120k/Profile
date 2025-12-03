@@ -9,113 +9,36 @@
 
 .profile-section {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   gap: 20px;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .profile-image-container {
   position: relative;
   margin-bottom: 20px;
-}
-
-.profile-image {
-  width: 150px;
-  height: 150px;
+  width: 210px;
+  height: 210px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-  box-shadow: 0 0 30px rgba(255, 105, 180, 0.3);
-}
-
-.image-placeholder {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: var(--secondary-pink);
-  position: relative;
   overflow: hidden;
+  border: 4px solid white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 2;
 }
 
-/* 💡 Bulb Icon */
-.image-placeholder::before {
-  content: "💡";
-  position: absolute;
-  top: 12%;
-  right: 8%;
-  font-size: 1.6rem;
-  filter: drop-shadow(0 0 5px yellow);
-  animation: bulbGlow 1.5s ease-in-out infinite;
-  z-index: 3;
-}
-
-/* </> Code Symbol */
-.image-placeholder::after {
-  content: "</>";
-  position: absolute;
-  bottom: 12%;
-  left: 8%;
-  font-size: 1rem;
-  font-weight: 800;
-  color: var(--secondary-pink);
-  text-shadow: 0 0 5px rgba(255, 105, 180, 0.4);
-  animation: codePulse 1.8s ease-in-out infinite;
-  z-index: 3;
-}
-
-.image-border {
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  border-radius: 50%;
-  background: linear-gradient(45deg, var(--primary-pink), var(--secondary-pink), var(--soft-green));
-  z-index: 1;
-  animation: rotate 3s linear infinite;
-}
-
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Bulb glow animation */
-@keyframes bulbGlow {
-  0%, 100% {
-    filter: drop-shadow(0 0 5px yellow) drop-shadow(0 0 10px gold);
-    opacity: 0.8;
-  }
-  50% {
-    filter: drop-shadow(0 0 15px yellow) drop-shadow(0 0 25px gold);
-    opacity: 1;
-  }
-}
-
-/* Code symbol pulse animation */
-@keyframes codePulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 1;
-  }
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .profile-info {
-  text-align: center;
+  text-align: left;
+  flex: 1;
 }
 
 .profile-name {
@@ -221,6 +144,7 @@
   transition: all 0.3s ease;
   border: none;
   font-size: 1rem;
+  margin-top: 20px;
 }
 
 .btn-primary {
@@ -267,52 +191,38 @@
 }
 
 .social-link:hover {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: var(--primary-pink);
-  color: var(--secondary-pink);
-  text-decoration: none;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .profile-name {
-    font-size: 2rem;
-  }
-  
-  .profile-image {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .image-placeholder {
-    width: 110px;
-    height: 110px;
-    font-size: 2.5rem;
-  }
-  
-  .quick-stats {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .action-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .social-links {
-    flex-wrap: wrap;
-    gap: 15px;
-  }
+.competencies-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.competency-item {
+  font-weight: 600;
+  color: var(--secondary-pink);
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.competency-separator {
+  color: var(--dark-text);
+  opacity: 0.3;
+  font-size: 0.8rem;
 }
 
 /* Animation enhancements */
-.profile-image-container:hover .image-border {
-  animation-duration: 1s;
-}
-
 .bio-text {
   position: relative;
+  text-align: justify;
 }
 
 .bio-text::before {
@@ -330,4 +240,30 @@
 
 .bio-text:hover::before {
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .profile-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-info {
+    text-align: center;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 30px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0;
+  }
 }

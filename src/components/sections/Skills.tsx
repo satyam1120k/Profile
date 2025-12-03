@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  Code,
   Brain,
   Database,
   Smartphone,
@@ -9,11 +8,8 @@ import {
   Trophy,
   ExternalLink,
   Star,
-  Target,
-  Zap,
   Code2,
   Award,
-  TrendingUp,
 } from "lucide-react";
 import "./Skills.css";
 
@@ -22,55 +18,78 @@ interface SkillsProps {
 }
 
 const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
-  const skillCategories = [
+  const expertiseSections = [
     {
-      title: "Programming Languages",
-      icon: Code,
-      skills: [
-        { name: "Python", level: 80, color: "#3776AB" },
-        { name: "C++", level: 80, color: "#00599C" },
-        { name: "SQL", level: 80, color: "#00B4AB" },
-        { name: "JavaScript", level: 40, color: "#F7DF1E" },
-        { name: "TypeScript", level: 40, color: "#9d35bdff" },
-      ],
-    },
-    {
-      title: "Frameworks & Libraries",
-      icon: Globe,
-      skills: [
-        { name: "React", level: 30, color: "#61DAFB" },
-        { name: "Flutter", level: 40, color: "#02569B" },
-        { name: "Node.js", level: 40, color: "#339933" },
-        { name: "FastAPI", level: 60, color: "#009688" },
-        { name: "OpenCV", level: 75, color: "#5C3EE8" },
-        { name: "NumPy", level: 85, color: "#013243" },
-        { name: "Pandas", level: 80, color: "#150458" },
-        { name: "Matplotlib", level: 70, color: "#d62728" },
-        { name: "TensorFlow", level: 75, color: "#FF6F00" },
-        { name: "PyTorch", level: 70, color: "#EE4C2C" },
-        { name: "LangChain", level: 65, color: "#32a852" },
-        { name: "LangGraph", level: 65, color: "#329ba8" },
-      ],
-    },
-    {
-      title: "Tools & Technologies",
-      icon: Database,
-      skills: [
-        { name: "MediaPipe", level: 65, color: "#FF6B6B" },
-        { name: "Firebase", level: 30, color: "#FFCA28" },
-        { name: "Git", level: 80, color: "#F05032" },
-        { name: "LangSmith", level: 60, color: "#2E86AB" },
-        { name: "Docker", level: 50, color: "#2496ED" },
-      ],
-    },
-    {
-      title: "Soft Skills",
+      title: "Artificial Intelligence & Machine Learning",
       icon: Brain,
-      skills: [
-        { name: "Problem Solving", level: 80, color: "#2196F3" },
-        { name: "Research", level: 75, color: "#9C27B0" },
-        { name: "Teamwork", level: 70, color: "#4CAF50" },
-        { name: "Communication", level: 60, color: "#FF9800" },
+      emoji: "🤖",
+      accent: "#f472b6",
+      points: [
+        "Deep Learning (ANN, CNNs, RNNs, Transformers)",
+        "Machine Learning Algorithms",
+        "Model Training, Validation & Optimization",
+        "Optimization Algorithms for hyper-parameter tuning",
+      ],
+    },
+    {
+      title: "Computer Vision",
+      icon: Smartphone,
+      emoji: "🎥",
+      accent: "#60a5fa",
+      points: [
+        "Pose Estimation (MediaPipe, OpenCV)",
+        "Image Segmentation & Classification",
+        "Object Detection & Tracking",
+        "Feature Engineering & Preprocessing",
+      ],
+    },
+    {
+      title: "Data Science & Analytics",
+      icon: Database,
+      emoji: "🧠",
+      accent: "#34d399",
+      points: [
+        "Data Cleaning & Feature Engineering",
+        "Statistical Analysis & Hypothesis Testing",
+        "Exploratory Data Analysis (EDA)",
+        "Data Modeling & Pipeline Design",
+      ],
+    },
+    {
+      title: "Data Structures & Algorithm Design (DSA & ADA)",
+      icon: Code2,
+      emoji: "🧮",
+      accent: "#facc15",
+      points: [
+        "Core Data Structures (arrays, lists, trees, graphs, heaps, hashmaps)",
+        "Algorithm Design: divide & conquer, dynamic programming, greedy, backtracking",
+        "Competitive problem solving — LeetCode & contest-style practice",
+        "Applying algorithms to ML/data pipelines & system performance",
+      ],
+    },
+    {
+      title: "Tools & Frameworks",
+      icon: Globe,
+      emoji: "🛠",
+      accent: "#a78bfa",
+      points: [
+        "Languages: Python, C++, SQL",
+        "Libraries: TensorFlow, PyTorch, OpenCV, MediaPipe",
+        "Tools: Git, Docker, Jupyter, VS Code",
+        "Scientific Stack: NumPy, SciPy, Pandas, Matplotlib",
+        "Frontend Tools: React, TypeScript (basic)",
+      ],
+    },
+    {
+      title: "Engineering Practices",
+      icon: Award,
+      emoji: "📦",
+      accent: "#fb7185",
+      points: [
+        "Research-oriented development & reproducible experiments",
+        "Experimental design and evaluation metrics",
+        "Clear documentation & reporting",
+        "System design for AI workflows",
       ],
     },
   ];
@@ -80,8 +99,8 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
       platform: "LeetCode",
       // username: "samir1120k",
       stats: [
-        { label: "Rating", value: "1467", icon: Star },
-        { label: "Problems Solved", value: "400+", icon: Code2 },
+        { label: "Rating", value: "1486", icon: Star },
+        { label: "Problems Solved", value: "450+", icon: Code2 },
       ],
       color: "#FFA116",
       url: "https://leetcode.com/u/satyam1120k",
@@ -93,8 +112,8 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
       platform: "Codeforces",
       // username: "samir1120k",
       stats: [
-        { label: "Rating", value: "1052", icon: Star },
-        { label: "Problems Solved", value: "75+", icon: Code2 },
+        { label: "Rating", value: "1090", icon: Star },
+        { label: "Problems Solved", value: "20+", icon: Code2 },
       ],
       color: "#1F8ACB",
       url: "https://codeforces.com/profile/satyam1120k",
@@ -122,53 +141,39 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.6 }}
       >
-        {skillCategories.map((category, categoryIndex) => (
-          <motion.div
-            key={categoryIndex}
-            className="skill-category"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 + categoryIndex * 0.1 }}
-          >
-            <div className="category-header">
-              <category.icon size={24} />
-              <h2 className="category-title">{category.title}</h2>
-            </div>
-
-            <div className="skills-grid">
-              {category.skills.map((skill, skillIndex) => (
-                <motion.div
-                  key={skillIndex}
-                  className="skill-item"
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    delay: 0.7 + categoryIndex * 0.1 + skillIndex * 0.05,
-                  }}
+        <div className="expertise-grid">
+          {expertiseSections.map((section, index) => (
+            <motion.div
+              key={section.title}
+              className="expertise-card"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 + index * 0.1 }}
+            >
+              <div className="expertise-card-header">
+                <span
+                  className="expertise-emoji"
+                  style={{ color: section.accent }}
                 >
-                  <div className="skill-header">
-                    <span className="skill-name">{skill.name}</span>
-                    <span className="skill-level">{skill.level}%</span>
-                  </div>
-
-                  <div className="skill-bar">
-                    <motion.div
-                      className="skill-progress"
-                      style={{ backgroundColor: skill.color }}
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.level}%` }}
-                      transition={{
-                        delay: 1 + categoryIndex * 0.1 + skillIndex * 0.05,
-                        duration: 1,
-                      }}
+                  {section.emoji}
+                </span>
+                <section.icon size={24} style={{ color: section.accent }} />
+                <h2>{section.title}</h2>
+              </div>
+              <ul className="expertise-list">
+                {section.points.map((point, pointIndex) => (
+                  <li key={pointIndex}>
+                    <span
+                      className="bullet-dot"
+                      style={{ backgroundColor: section.accent }}
                     />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        ))}
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
 
         {/* Coding Profiles Section */}
         <motion.div
@@ -237,37 +242,6 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
             ))}
           </div>
         </motion.div>
-      </motion.div>
-
-      <motion.div
-        className="skills-summary"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8, duration: 0.6 }}
-      >
-        <h3 className="summary-title">What I Bring to the Table</h3>
-        <div className="summary-grid">
-          <div className="summary-item">
-            <div className="summary-icon">🚀</div>
-            <h4>Fast Development</h4>
-            <p>Quick prototyping and efficient coding practices</p>
-          </div>
-          <div className="summary-item">
-            <div className="summary-icon">🎯</div>
-            <h4>Problem Solving</h4>
-            <p>Analytical thinking and creative solutions</p>
-          </div>
-          <div className="summary-item">
-            <div className="summary-icon">🤝</div>
-            <h4>Team Collaboration</h4>
-            <p>Excellent communication and teamwork skills</p>
-          </div>
-          <div className="summary-item">
-            <div className="summary-icon">📚</div>
-            <h4>Continuous Learning</h4>
-            <p>Always exploring new technologies and methodologies</p>
-          </div>
-        </div>
       </motion.div>
     </div>
   );

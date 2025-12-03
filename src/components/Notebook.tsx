@@ -18,7 +18,7 @@ const Notebook: React.FC<NotebookProps> = ({ isOpen, currentPage, onPageChange, 
 
   // Animated properties for notebook opening
   const { notebookRotation, notebookScale, coverRotation } = useSpring({
-    notebookRotation: isOpen ? [0, 0, 0] : [0, Math.PI / 2, 0],
+    notebookRotation: isOpen ? [0, 0, 0] : [0, 0, 0],
     notebookScale: isOpen ? 1 : (isHovered ? 0.85 : 0.8),
     coverRotation: isOpen ? [0, -Math.PI / 2, 0] : [0, 0, 0],
     config: { mass: 1, tension: 280, friction: 120 }
@@ -40,9 +40,10 @@ const Notebook: React.FC<NotebookProps> = ({ isOpen, currentPage, onPageChange, 
           'Table of Contents',
           'Home',
           'About Me',
-          'Resume',
-          'Projects',
           'Skills',
+          'Projects',
+          'Experience',
+          'Research',
           'Contact'
         ][i]
       })
@@ -65,7 +66,7 @@ const Notebook: React.FC<NotebookProps> = ({ isOpen, currentPage, onPageChange, 
   }
 
   return (
-    <animated.group 
+    <animated.group
       ref={notebookRef}
       rotation={notebookRotation as any}
       scale={notebookScale as any}
@@ -84,18 +85,18 @@ const Notebook: React.FC<NotebookProps> = ({ isOpen, currentPage, onPageChange, 
       </mesh>
 
       {/* Notebook front cover */}
-      <animated.mesh 
-        position={[0, 0, 0.1]} 
+      <animated.mesh
+        position={[0, 0, 0.1]}
         rotation={coverRotation as any}
         onClick={handleCoverClick}
         onPointerOver={() => !isOpen && setIsHovered(true)}
         onPointerOut={() => setIsHovered(false)}
-        castShadow 
+        castShadow
         receiveShadow
       >
         <boxGeometry args={[3, 4, 0.2]} />
         <meshStandardMaterial color="#8B5CF6" />
-        
+
         {/* Cover title */}
         <group position={[0, 0, 0.11]}>
           <mesh>
@@ -117,7 +118,7 @@ const Notebook: React.FC<NotebookProps> = ({ isOpen, currentPage, onPageChange, 
             Portfolio
           </Text>
         </group>
-        
+
         {/* Click indicator */}
         <group position={[0, -1.5, 0.11]}>
           <mesh>
@@ -139,13 +140,13 @@ const Notebook: React.FC<NotebookProps> = ({ isOpen, currentPage, onPageChange, 
               castShadow
               receiveShadow
             >
-                      <boxGeometry args={[2.8, 3.8, 0.02]} />
-        <meshStandardMaterial 
-          color={currentPage === index ? "#8B5CF6" : "#ffffff"}
-          transparent
-          opacity={0.9}
-        />
-              
+              <boxGeometry args={[2.8, 3.8, 0.02]} />
+              <meshStandardMaterial
+                color={currentPage === index ? "#8B5CF6" : "#ffffff"}
+                transparent
+                opacity={0.9}
+              />
+
               {/* Page content text */}
               <group position={[0, 0, 0.02]}>
                 <mesh>
@@ -160,9 +161,9 @@ const Notebook: React.FC<NotebookProps> = ({ isOpen, currentPage, onPageChange, 
 
       {/* Ambient lighting for notebook */}
       <ambientLight intensity={0.4} />
-      <directionalLight 
-        position={[5, 5, 5]} 
-        intensity={0.6} 
+      <directionalLight
+        position={[5, 5, 5]}
+        intensity={0.6}
         castShadow
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}

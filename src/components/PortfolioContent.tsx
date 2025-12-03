@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import TableOfContents from './sections/TableOfContents'
 import Home from './sections/Home'
 import About from './sections/About'
-import Resume from './sections/Resume'
+import Experience from './sections/Experience'
+import Certifications from './sections/Certifications'
 import Projects from './sections/Projects'
 import Skills from './sections/Skills'
 import Contact from './sections/Contact'
@@ -15,16 +16,17 @@ interface PortfolioContentProps {
   isNotebookOpen: boolean
 }
 
-const PortfolioContent: React.FC<PortfolioContentProps> = ({ 
-  currentPage, 
-  onPageChange, 
-  isNotebookOpen 
+const PortfolioContent: React.FC<PortfolioContentProps> = ({
+  currentPage,
+  onPageChange,
+  isNotebookOpen
 }) => {
   const sections = [
     { component: TableOfContents, title: 'Table of Contents' },
     { component: Home, title: 'Home' },
     { component: About, title: 'About Me' },
-    { component: Resume, title: 'Resume' },
+    { component: Experience, title: 'Experience' },
+    { component: Certifications, title: 'Certifications' },
     { component: Projects, title: 'Projects' },
     { component: Skills, title: 'Skills' },
     { component: Contact, title: 'Contact' }

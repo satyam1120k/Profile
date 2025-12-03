@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { BookOpen, User, FileText, Briefcase, Code, Mail } from "lucide-react";
+import { BookOpen, User, FileText, Briefcase, Code, Mail, Award } from "lucide-react";
 import "./TableOfContents.css";
 
 interface TableOfContentsProps {
@@ -23,24 +23,30 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ onPageChange }) => {
     },
     {
       id: 3,
-      title: "Resume",
+      title: "Experience",
       icon: FileText,
       description: "A journey through learning, building, and growing.",
     },
     {
       id: 4,
+      title: "Certifications",
+      icon: Award,
+      description: "Continuous learning and professional growth.",
+    },
+    {
+      id: 5,
       title: "Projects",
       icon: Briefcase,
       description: "From sparks of ideas to fully-fledged creations.",
     },
     {
-      id: 5,
+      id: 6,
       title: "Skills",
       icon: Code,
       description: "The tools and tech that fuel my innovation.",
     },
     {
-      id: 6,
+      id: 7,
       title: "Contact",
       icon: Mail,
       description: "Let's connect and make something extraordinary.",
