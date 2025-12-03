@@ -106,7 +106,7 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
       url: "https://leetcode.com/u/satyam1120k",
       icon: "🏆",
       description: "Algorithm & Data Structures",
-      logo: "/logo/leetcode_logo.png",
+      logo: "logo/leetcode_logo.png",
     },
     {
       platform: "Codeforces",
@@ -119,7 +119,7 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
       url: "https://codeforces.com/profile/satyam1120k",
       icon: "⚡",
       description: "Competitive Programming",
-      logo: "/logo/codeforces_logo.png",
+      logo: "logo/codeforces_logo.png",
     },
   ];
 

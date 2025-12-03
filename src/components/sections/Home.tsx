@@ -41,7 +41,7 @@ const Home: React.FC<HomeProps> = ({ onPageChange }) => {
             transition={{ type: "spring", stiffness: 300 }}
           >
             <img
-              src="/logo/profile_photo.jpg"
+              src="logo/profile_photo.jpg"
               alt="Satyam Patel"
               className="profile-photo"
             />
