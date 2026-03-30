@@ -115,7 +115,7 @@ const Notebook: React.FC<NotebookProps> = ({ isOpen, currentPage, onPageChange, 
             font="https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtXK-F2qC0s.woff"
             fontWeight="bold"
           >
-            Portfolio
+            Click Here
           </Text>
         </group>
 

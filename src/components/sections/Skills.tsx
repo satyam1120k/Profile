@@ -99,8 +99,8 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
       platform: "LeetCode",
       // username: "samir1120k",
       stats: [
-        { label: "Rating", value: "1486", icon: Star },
-        { label: "Problems Solved", value: "450+", icon: Code2 },
+        { label: "Rating", value: "1556", icon: Star },
+        { label: "Problems Solved", value: "85+", icon: Code2 },
       ],
       color: "#FFA116",
       url: "https://leetcode.com/u/satyam1120k",
@@ -112,7 +112,7 @@ const Skills: React.FC<SkillsProps> = ({ onPageChange }) => {
       platform: "Codeforces",
       // username: "samir1120k",
       stats: [
-        { label: "Rating", value: "1090", icon: Star },
+        { label: "Rating", value: "1092", icon: Star },
         { label: "Problems Solved", value: "20+", icon: Code2 },
       ],
       color: "#1F8ACB",

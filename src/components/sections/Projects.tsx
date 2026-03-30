@@ -18,24 +18,44 @@ interface ProjectsProps {
 const Projects: React.FC<ProjectsProps> = ({ onPageChange }) => {
   const projects = [
     {
-      title: "Weather Software",
+      title: "EHR Software",
       description:
-        "A comprehensive weather application with real-time data and beautiful UI",
-      technologies: ["React", "Node.js", "OpenWeather API"],
-      image: "🌤️",
-      demo: "https://weather-demo.com",
-      github: "https://github.com/satyam-patel/weather-app",
-      category: "Web App",
+        "A comprehensive EHR application with real-time data and a beautiful, modern UI.",
+      technologies: ["React (TypeScript)", "FastAPI", "Firebase"],
+      image: "🩺",
+      demo: "https://satyam1120k.github.io/Meditrack_Frontend/",
+      github: "https://github.com/satyam1120k/Meditrack_Frontend",
+      category: "API",
     },
     {
-      title: "Catalog App (Flutter)",
+      title: "Personal Task Manager",
       description:
-        "Mobile application for product catalog management with offline support",
-      technologies: ["Flutter", "Dart", "Firebase"],
-      image: "📱",
-      demo: "https://catalog-demo.com",
-      github: "https://github.com/satyam-patel/catalog-app",
-      category: "Mobile App",
+        "An AI-powered task manager with real-time sync and a modern UI.",
+      technologies: ["React (TypeScript)", "Google Gemini AI", "Firebase Firestore"],
+      image: "📝",
+      demo: "https://satyam1120k.github.io/ZenTask/",
+      github: "https://github.com/satyam1120k/ZenTask",
+      category: "Web App",
+    },
+    
+    {
+      title: "Vantage AI",
+      description:
+        "AI-powered resume analyzer that matches resumes to jobs with smart insights",
+      technologies: ["Fast API", "LangChain", "React"],
+      image: "🚁",
+      demo: "https://satyam1120k.github.io/Vantage-AI/",
+      github: "https://github.com/satyam1120k/Vantage-AI",
+      category: "AI/ML",
+    },
+    {
+      title: "UPSC-Essay-Checker",
+      description: "AI-powered UPSC essay evaluator that scores and provides detailed feedback using Gemini",
+      technologies: ["Fast API", "LangGraph", "React"],
+      image: "🛒",
+      demo: "https://satyam1120k.github.io/UPSC-Essay-Checker",
+      github: "https://github.com/satyam1120k/UPSC-Essay-Checker",
+      category: "API",
     },
     {
       title: "AI-Based BPPV Pose Guide",
@@ -43,42 +63,23 @@ const Projects: React.FC<ProjectsProps> = ({ onPageChange }) => {
         "Computer vision application for detecting and guiding BPPV poses",
       technologies: ["Python", "OpenCV", "MediaPipe"],
       image: "🧠",
-      demo: "https://bppv-demo.com",
+      demo: "",
       github: "https://github.com/satyam-patel/bppv-guide",
       category: "AI/ML",
-    },
-    {
-      title: "Drone Detection System",
-      description:
-        "Advanced drone detection using computer vision and machine learning",
-      technologies: ["Python", "TensorFlow", "OpenCV"],
-      image: "🚁",
-      demo: "https://drone-demo.com",
-      github: "https://github.com/satyam-patel/drone-detection",
-      category: "AI/ML",
-    },
-    {
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with payment integration",
-      technologies: ["React", "Node.js", "MongoDB"],
-      image: "🛒",
-      demo: "https://ecommerce-demo.com",
-      github: "https://github.com/satyam-patel/ecommerce",
-      category: "Web App",
     },
     {
       title: "Portfolio Website",
       description:
         "Interactive 3D portfolio with anime aesthetics and smooth animations",
       technologies: ["React", "Three.js", "TypeScript"],
-      image: "🌸",
-      demo: "#",
-      github: "https://github.com/satyam-patel/3d-portfolio",
+      image: "🦋",
+      demo: "https://satyam1120k.github.io/Profile/",
+      github: "https://github.com/satyam1120k/Profile",
       category: "Web App",
     },
   ];
 
-  const categories = ["All", "Web App", "Mobile App", "AI/ML"];
+  const categories = ["All", "Web App", "API", "AI/ML"];
   const [selectedCategory, setSelectedCategory] = React.useState("All");
 
   const filteredProjects =
@@ -107,9 +108,8 @@ const Projects: React.FC<ProjectsProps> = ({ onPageChange }) => {
         {categories.map((category, index) => (
           <motion.button
             key={category}
-            className={`filter-btn ${
-              selectedCategory === category ? "active" : ""
-            }`}
+            className={`filter-btn ${selectedCategory === category ? "active" : ""
+              }`}
             onClick={() => setSelectedCategory(category)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -197,7 +197,7 @@ const Projects: React.FC<ProjectsProps> = ({ onPageChange }) => {
         <p className="footer-text">
           Want to see more? Check out my{" "}
           <a
-            href="https://github.com/samir1120k"
+            href="https://github.com/satyam1120k"
             target="_blank"
             rel="noopener noreferrer"
           >
