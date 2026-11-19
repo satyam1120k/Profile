@@ -1,43 +1,41 @@
-import React, { useState, useEffect } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Environment, Stars } from '@react-three/drei'
-import { EffectComposer, Bloom } from '@react-three/postprocessing'
-import CherryBlossomGarden from './components/CherryBlossomGarden'
-import Notebook from './components/Notebook'
-import NotebookContent from './components/NotebookContent'
+import { useCallback, useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import World from './world/World'
+import { requestTeleport } from './world/store'
+import { Zone } from './world/zones'
 import AudioManager from './components/AudioManager'
 import LoadingScreen from './components/LoadingScreen'
-import UsageHint from './components/UsageHint'
+import Hud from './components/hud/Hud'
 import './App.css'
+
+/** Screens in the world are drawn with Poppins, so wait for it before drawing them. */
+function loadFonts() {
+  if (!document.fonts?.load) return Promise.resolve()
+  return Promise.all(['400', '500', '600', '700'].map((w) => document.fonts.load(`${w} 24px Poppins`))).catch(
+    () => undefined,
+  )
+}
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
-  const [currentPage, setCurrentPage] = useState(0)
-  const [isNotebookOpen, setIsNotebookOpen] = useState(false)
+  const [activeZone, setActiveZone] = useState<Zone | null>(null)
+  const [flashKey, setFlashKey] = useState(0)
 
   useEffect(() => {
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 2000)
-
-    return () => clearTimeout(timer)
+    let alive = true
+    const minDelay = new Promise((r) => setTimeout(r, 1500))
+    // Never hang on a slow font CDN.
+    const fonts = Promise.race([loadFonts(), new Promise((r) => setTimeout(r, 4000))])
+    Promise.all([minDelay, fonts]).then(() => alive && setIsLoading(false))
+    return () => {
+      alive = false
+    }
   }, [])
 
-
-
-  const handlePageChange = (pageIndex: number) => {
-    setCurrentPage(pageIndex)
-    setIsNotebookOpen(true)
-  }
-
-  const handleNotebookClick = () => {
-    setIsNotebookOpen(true)
-  }
-
-  const handleNotebookClose = () => {
-    setIsNotebookOpen(false)
-  }
+  const travelTo = useCallback((zone: Zone) => {
+    requestTeleport({ x: zone.tx, z: zone.tz, heading: Math.atan2(zone.x - zone.tx, zone.z - zone.tz) })
+    setFlashKey((k) => k + 1)
+  }, [])
 
   if (isLoading) {
     return <LoadingScreen />
@@ -47,76 +45,25 @@ function App() {
     <div className="app">
       <AudioManager />
 
-      {/* 3D Scene */}
       <div className="canvas-container">
-        <Canvas
-          camera={{ position: [0, 5, 10], fov: 75 }}
-          style={{ background: 'linear-gradient(to bottom, #87CEEB, #E0F6FF)' }}
-        >
-          <EffectComposer>
-            <Bloom
-              intensity={0.5}
-              luminanceThreshold={0.1}
-              luminanceSmoothing={0.9}
-            />
-          </EffectComposer>
-
-          <ambientLight intensity={0.4} />
-          <directionalLight
-            position={[10, 10, 5]}
-            intensity={1}
-            castShadow
-            shadow-mapSize-width={2048}
-            shadow-mapSize-height={2048}
-          />
-
-          <CherryBlossomGarden />
-
-          <Notebook
-            isOpen={isNotebookOpen}
-            currentPage={currentPage}
-            onPageChange={handlePageChange}
-            onNotebookClick={handleNotebookClick}
-          />
-
-          <Stars
-            radius={100}
-            depth={50}
-            count={5000}
-            factor={4}
-            saturation={0}
-            fade
-            speed={1}
-          />
-
-          <Environment preset="sunset" />
-          <OrbitControls
-            enableZoom={true}
-            enablePan={true}
-            enableRotate={true}
-            maxPolarAngle={Math.PI / 2}
-            minDistance={5}
-            maxDistance={20}
-          />
-        </Canvas>
+        <World activeZoneId={activeZone?.id ?? null} onZoneChange={setActiveZone} />
       </div>
 
+      <Hud activeZone={activeZone} onTravel={travelTo} />
 
-
-
-      {/* Usage Hint */}
-      <UsageHint visible={!isNotebookOpen} />
-
-      {/* Notebook Content Overlay */}
-      <NotebookContent
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-        isNotebookOpen={isNotebookOpen}
-        onClose={handleNotebookClose}
-      />
+      <AnimatePresence>
+        {flashKey > 0 && (
+          <motion.div
+            key={flashKey}
+            className="teleport-flash"
+            initial={{ opacity: 0.9 }}
+            animate={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          />
+        )}
+      </AnimatePresence>
     </div>
   )
 }
 
 export default App
-
